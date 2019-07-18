@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using SGCLI.UI.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SGCLI.Infrastructure.Data;
 
 namespace SGCLI.UI.Web
 {
@@ -41,6 +42,11 @@ namespace SGCLI.UI.Web
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddDbContext<ClienteContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

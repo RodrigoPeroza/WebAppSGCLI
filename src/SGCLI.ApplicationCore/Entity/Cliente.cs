@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SGCLI.ApplicationCore.Entity
 {
-    class Cliente
+    public class Cliente
     {
         public Cliente()
         {
